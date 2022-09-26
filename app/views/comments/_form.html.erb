@@ -1,0 +1,27 @@
+<%= form_with model: [@topic, @topic.comments.build] do |form| %>
+
+<div class="comment_name_stamp">
+  <%= form.label :name %>
+  <% if current_user %>
+    <%= form.text_field :name, value: current_user.username, readonly: true %>
+  <% else %>
+    <%= form.text_field :name, value: "Guest", readonly: true %>
+  <% end %>
+</div>
+
+<!--This is strictly to prevent spam. If this is filled out at all, the site
+will not publish the comment.-->
+<div>
+   <%= invisible_captcha :subtitle, :topic %>
+</div>
+
+<div>
+  <%= form.label :body %>
+  <%= form.rich_text_area :body %>
+</div>
+
+<div>
+  <%= form.submit "Contribute your thoughts"%>
+</div>
+
+<% end %>

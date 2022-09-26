@@ -1,0 +1,48 @@
+<div class="main_navigation_buttons">
+  <%= link_to "Home", root_path, :class => "not_visiting" %>
+  <%= link_to "Topics", topics_path, :class => "visiting" %>
+  <%= link_to "About", pages_about_path, :class => "not_visiting" %>
+</div>
+
+<div class="topics_heading">
+  <h1>Topics</h1>
+</div>
+
+<div class="topics_list">
+  <ul>
+    <% @topics.each do |topic| %>
+      <li>
+        <%= link_to topic.title, topic %> <br>
+        <div class="topic_list_author">
+          <p>Created by: <%= topic.username %> on <%= topic.created_at.strftime("%m/%d/%Y at %H:%M") %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<!--Since the variable cannot be grabbed from a separate file, the amount of
+topics required for the 'next' page is hard coded. IF THE AMOUNT OF TOPICS PER
+PAGE CHANGES AT ALL, MAKE SURE TO CHANGE THE VALUE IN THIS CHUNK OF CODE TO
+MATCH TOPICS_PER_PAGE IN THE TOPICS CONTROLLER OR ELSE GLITCHES WILL OCCUR.-->
+<div class="topics_pagination">
+    <% current_page = @page %>
+
+  <% if current_page != 0 && @topics.count == 8 %>
+    <%= link_to "Next Page", topics_path(page: @page + 1) %>
+    |
+    <%= link_to "Previous Page", topics_path(page: @page - 1) %>
+  <% elsif current_page == 0 && @topics.count == 8 %>
+    <%= link_to "Next Page", topics_path(page: @page + 1) %>
+  <% elsif @topics.count < 15 && current_page != 0 %>
+    <%= link_to "Previous Page", topics_path(page: @page - 1) %>
+  <% end %>
+</div>
+
+<footer>
+  <hr class="bottom_line">
+  <ul class="bottom_links">
+    <li><%= link_to image_tag("GitHub-Mark-Light-32px.png"), "https://github.com/GP-Legend"%></li>
+  </ul>
+</footer>

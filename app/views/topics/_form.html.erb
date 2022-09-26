@@ -1,0 +1,55 @@
+<!--This is a partial for 'topics'.-->
+<%= form_with model: topic do |form| %>
+
+  <!--This is just to create error messages.-->
+  <% if topic.errors.any? %>
+    <div>
+      <h2><%= pluralize(topic.errors.count, "error") %> were present in the topic:</h2>
+      <ul>
+        <% topic.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--End of error checks.-->
+
+<!--Filters out bot spam.-->
+<div class="honey">
+   <%= invisible_captcha :subtitle, :topic %>
+</div>
+
+  <!--This class is called 'name_stamp' because the name of the user is
+  'stamped' onto the post. If the user is just some random person, i.e. not
+  logged in, then the name is set to 'guest'.-->
+  <div class="name_stamp">
+    <div class="namestamp_DELUXE">
+      <%= form.label :username %>
+      <% if current_user %>
+        <%= form.text_field :username, value: current_user.username, readonly: true %>
+      <% else %>
+        <%= form.text_field :username, value: "Guest", readonly: true %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="topic_form_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div><br>
+
+  <div class="topic_form_body">
+    <%= form.label :body %>
+    <%= form.rich_text_area :body %>
+  </div>
+
+  <div class="create_topic_submission">
+    <%= form.submit "Create Topic" %>
+  </div><br>
+
+  <p class="notice">NOTICE: Locally uploaded images will not render due to an
+    issue with the Action Text package. Please upload images via copying and
+    pasting them from online for the time being. I apologize for any
+    inconvenience.</p>
+
+<% end %>

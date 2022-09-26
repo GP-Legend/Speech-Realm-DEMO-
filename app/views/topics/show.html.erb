@@ -1,0 +1,47 @@
+<div class="main_navigation_buttons">
+  <%= link_to "Home", root_path, :class => "not_visiting" %>
+  <%= link_to "Topics", topics_path, :class => "visiting" %>
+  <%= link_to "About", pages_about_path, :class => "not_visiting" %>
+</div>
+
+<div class="topic_title">
+  <h1><%= @topic.title %> </h1><br>
+</div>
+
+<div class="signature_of_authorship">
+  <h3>Created by: <%= @topic.username %> on <%= @topic.created_at.strftime("%m/%d/%Y at %H:%M") %> </h3><br>
+</div>
+
+
+<div class="topic_body">
+    <p> <%= @topic.body %> </p>
+</div>
+
+<br><br><br>
+
+<div class="comments_section">
+  <% if @topic.comments.count < 1 %>
+    <h3>This topic currently has no comments.</h3>
+    <p>Be the first to give some feedback or start a discussion!</p><br>
+  <% else %>
+  <div class="comments_section_heading">
+    <h3>Discussion</h3>
+  </div>
+  <%= render @topic.comments %>
+  <% end %>
+</div>
+
+
+<div class="comments_creation">
+  <h3>Provide Some Input</h3>
+  <%= render 'comments/form' %>
+</div>
+
+<br><br>
+
+<footer>
+  <hr class="bottom_line">
+  <ul class="bottom_links">
+    <li><%= link_to image_tag("GitHub-Mark-Light-32px.png"), "https://github.com/GP-Legend"%></li>
+  </ul>
+</footer>

@@ -1,0 +1,605 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*NOTICE: I would have created more .css files, but the paths "weren't found".
+So, I will have to do the dirty job that was done with the blog app, only
+this time the ante will be upped because the project is much more complex.
+
+As such, the CSS file will be divided into parts. If a style goes to a
+particular file, find that file with Cmmd+F and find the styles there. I don't
+like it, but that's how things are going to be for right now.*/
+
+
+/*These two elements are incredibly glitchy and I cannot explain why. Deleting
+the one on the bottom gets rid of the website's background color and deleting
+the top one displays the username on comments even though it is in the topic
+file. This is some of the most broken code I have ever witnessed, and that is
+saying a lot. Erase at your own risk.*/
+.name_stamp input[type= "text"]{
+  display: none;
+}
+
+.comment_name_stamp {
+  display: none;
+
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+/*End of the Condemned*/
+
+
+
+
+
+
+
+/*APPLICATION.HTML.ERB and HOME.HTML.ERB SECTION.
+BELONGS TO: APP/VIEWS/LAYOUTS*/
+
+/*The main background itself.*/
+.main_body {
+  background-color: #030102;
+}
+
+/*The main navigation buttons at the top of the page.*/
+.main_navigation_buttons a {
+  width: 50px;
+
+  text-align: center;
+
+  padding-left: 40px;
+  padding-right: 40px;
+  color: ivory;
+  text-decoration: none;
+}
+
+/*The navigation buttons when you hover over them.*/
+.main_navigation_buttons a:hover {
+  color: #776972;
+}
+
+
+/*The main navigation buttons if one of them is being visited by a user, hence
+the name 'visiting.'*/
+.visiting {
+  background-color: #81150aff;
+}
+
+/*The main navigation buttons if they are not being visited but are hovered over
+by a user. So, if a button is highlighted already because it is being visited,
+then this styling will not apply to it.*/
+
+.not_visiting:hover  {
+  background-color: #240301;
+}
+
+/*The 'Create New Topic' button itself, NOT the link.*/
+.new_topic_button {
+  height: 30px;
+}
+
+/*The link on the button that says 'Create New Topic'*/
+.new_topic_button a {
+  text-decoration: none;
+  color: #D1BCA3;
+}
+
+/*The link on the button that says 'Create New Topic' when a user hovers over
+it.*/
+.new_topic_button a:hover {
+  color: #F0E5D1;
+}
+
+/*A specific element for the message that is displayed when a user signs in.
+This will not affect the 'Sign in' and 'Sign up' buttons.*/
+.signed_in p {
+  color: #B0A6AC;
+
+  text-align: center;
+  display: block;
+  padding-right: 10px;
+
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+/*For the "Sign Out" button.*/
+.signed_in a {
+  color: #B0A6AC;
+
+  text-align: center;
+  text-decoration: none;
+  padding-right: 10px;
+
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+/*For when the "Sign Out" button is hovered over by the user.*/
+.signed_in a:hover {
+  color: #C8D0E4;
+}
+
+/*The button that lets you sign in or sign up.*/
+.sign_button a {
+  width: 55px;
+
+  text-align: center;
+
+
+  padding-right: 40px;
+  padding-left: 30px;
+  color: #B0A6AC;
+  text-decoration: none;
+
+  position: absolute;
+  float: right;
+  top: 8px;
+  right: 0;
+
+  color: #81150aff;
+}
+
+/*For when the 'Join' button is hovered over by the user.*/
+.sign_button a:hover {
+  color: #DBC091;
+}
+
+.ruby_power {
+  height: 600px;
+}
+
+/*The 'Powered by Ruby' heading.*/
+.ruby_power_text h1 {
+  color: #d1bca3ff;
+}
+
+/*The 'Powered by Ruby' paragraphs.*/
+.ruby_power_text p {
+  width: 600px;
+  float: left;
+  color: #d1bca3ff;
+}
+
+/*The giant Ruby logo.*/
+.ruby_image {
+  width: 35%;
+  image-resolution: snap;
+  float: right;
+}
+
+/*END OF APPLICATION.HTML.ERB and HOME.HTML.ERB SECTION. */
+
+
+
+
+
+
+/*TOPICS INDEX.HTML.ERB SECTION.
+BELONGS TO: APP/VIEWS/TOPICS*/
+
+/*The text that says 'Topics' at the top of the page.*/
+.topics_heading {
+  color: #d1bca3ff;
+
+  display: block;
+
+  text-align: center;
+  width: 100px;
+  padding-left: 34px;
+}
+
+/*The "list" of topics itself.*/
+.topics_list li{
+  color: red;
+}
+
+/*The actual links to the topics, denoted by their titles.*/
+.topics_list a {
+  color: #d1bca3ff;
+  text-decoration: none;
+}
+
+/*For when you hover over the links to each topic*/
+.topics_list a:hover {
+  color: #bc8d64ff;
+}
+
+/*The message which tells you who actually wrote the topic itself.*/
+.topic_list_author {
+  color: blue;
+}
+/*END OF INDEX.HTML.ERB (TOPICS) SECTION*/
+
+
+
+
+/*TOPICS SHOW.HTML.ERB SECTION
+BELONGS TO: APP/VIEWS/TOPICS*/
+
+/*The title of the topic after you click on it.*/
+.topic_title {
+  color: #d1bca3ff;
+}
+
+/*The body of the topic after you click on it.*/
+.topic_body {
+  width: 600px;
+  text-align: center;
+
+  margin: auto;
+
+  border: 6px outset #495d97ff;
+
+  color: #d1bca3ff;
+}
+
+/*Any and all links that get put inside the body of a topic.*/
+.topic_body a {
+  color: green;
+}
+
+/*The "Created by" part of the topic after you click on it.*/
+.signature_of_authorship {
+  color: #d1bca3ff;
+}
+
+
+/*This creates a default color for all of the elements in this particular div,
+but it also automatically formats things to be centered on the page (namely the
+special message that appears when a topic has zero comments).*/
+.comments_section {
+  width: 10%;
+  margin: auto;
+
+
+  color: #d1bca3ff;
+}
+
+/*The heading of the comments section.*/
+.comments_section_heading {
+  color: #d1bca3ff;
+}
+
+/*The box that lets you create a comment for a topic.*/
+.comments_creation {
+  margin: auto;
+  width: 200px;
+
+  text-align: center;
+
+  color: #d1bca3ff;
+}
+
+/*The header for the comment creation box.*/
+.comments_creation h3 {
+
+  text-align: center;
+  font-size: 25px;
+}
+
+/*The 'Contribute your thoughts' button.*/
+.comments_creation input[type = submit] {
+
+  border: 3px dotted black;
+  background-color: ivory;
+
+  width: 200px;
+}
+
+/*The 'Contribute your thoughts' button when it is hovered over by the user.*/
+.comments_creation input[type= submit]:hover {
+  color: #776972;
+}
+
+/*The special toolbar for creating rich™ comments.*/
+.comments_creation trix-toolbar {
+  border: 3px dotted black;
+
+  background-color: ivory;
+}
+
+/*The buttons in the rich text toolbar. How to color the symbols themselves
+is presently under investigation.*/
+.comments_creation trix-toolbar button {
+  background-color: ivory;
+}
+
+.comments_creation trix-editor {
+  background-color: #495d97ff;
+
+  border: 3px outset;
+  border-color: #d1bca3ff;
+}
+/*END OF TOPICS.SHOW.HTML.ERB*/
+
+
+
+
+/*TOPICS NEW.HTML.ERB SECTION
+BELONGS TO: APP/VIEWS/TOPICS*/
+
+/*The heading of the 'New Topics' page.*/
+.new_topic_heading {
+  color: #d1bca3ff;
+}
+
+/*END OF TOPICS.NEW.HTML.ERB*/
+
+
+
+
+/*TOPICS _FORM.HTML.ERB SECTION
+BELONGS TO: APP/VIEWS/TOPICS*/
+
+/*The title of the topic when it is being created.*/
+.topic_form_title {
+  width: 189px;
+
+  color: black;
+
+  border: 3px dotted black;
+
+  background-color: ivory;
+
+  outline: none;
+}
+
+/*The body of the topic when it is being created.*/
+.topic_form_body {
+
+  border: 3px dotted black;
+
+  background-color: ivory;
+
+  outline: none;
+}
+
+/*The toolbar that lets you style the text in a rich manner.*/
+.topic_form_body trix-toolbar  {
+  border: 3px solid black;
+
+  background-color: ivory;
+}
+
+/*The button that lets you create a topic.*/
+.create_topic_submission {
+
+}
+
+/*This hides the username field, unlike its older brother at the top of this
+file. The username is not supposed to be edited at all, let alone visible.*/
+.namestamp_DELUXE input[type= "text"] {
+  display: none;
+}
+
+/*The notice at the bottom of the page.*/
+.notice {
+  color: #d1bca3ff;
+}
+/*END OF TOPICS._FORM.HTML.ERB*/
+
+
+
+
+
+
+/*REGISTRATIONS SECTION, NEW.HTML.ERB
+BELONGS TO: APP/VIEWS/DEVISE/REGISTRATIONS*/
+
+/*The entire form when a potential user tries to sign up.*/
+.user_sign_up {
+  color: #d1bca3ff;
+}
+
+/*This is for when a user just wants to log in instead.*/
+.account_already_exists a{
+  color: #d1bca3ff;
+
+  text-decoration: none;
+}
+
+/*For when the user hovers over the button listed above.*/
+.account_already_exists a:hover {
+  color: #F0E5D1;
+}
+
+/*These four fields cover the input boxes on the registration page.*/
+.username_field input[type= "text"] {
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+.email_field input[type= "email"] {
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+.password_field input[type= "password"] {
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+.confirm_field input[type= "password"] {
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+/*The button that says "Sign up".*/
+.create_actions input[type= "submit"]{
+  border: 3px outset;
+
+  color: #bc8d64ff;
+  background-color: #1E203B;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+/*When you hover over the above button.*/
+.create_actions input[type= "submit"]:hover {
+  color: ivory;
+}
+/*END OF REGISTRATIONS SECTION*/
+
+
+
+
+/*SESSIONS SECTION, NEW.HTML.ERB
+BELONGS TO: APP/VIEWS/DEVISE/SESSIONS*/
+.user_log_in {
+  color: #d1bca3ff;
+}
+
+.create_account_link a{
+  color: #d1bca3ff;
+
+  text-decoration: none;
+}
+
+.create_account_link a:hover {
+  color: #F0E5D1;
+}
+
+/*Where the user types in his login information.*/
+.login_field input[type= "text"] {
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+/*Where the user types in his password.*/
+.log_password_field input[type= "password"] {
+  border: 3px outset;
+
+  color: ivory;
+  background-color: #9093C7;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+.log_actions input[type= "submit"]{
+  border: 3px outset;
+
+  color: #bc8d64ff;
+  background-color: #1E203B;
+  border-color: #495d97ff;
+
+  outline: none;
+}
+
+.log_actions input[type= "submit"]:hover {
+  color: ivory;
+}
+
+/*END OF SESSIONS SECTION*/
+
+
+
+
+
+/*ABOUT SECTION
+BELONGS TO: APP/VIEWS/PAGES*/
+
+/*The 'About' page itself; anything in the div is styled unless overridden by
+a different div.*/
+.about_page {
+  color: #d1bca3ff;
+}
+
+/*The main heading of the 'About' page.*/
+.about_heading {
+  color: #d1bca3ff;
+
+  display: block;
+
+  text-align: center;
+  width: 100px;
+  padding-left: 34px;
+}
+
+/*The paragraphs of the About page.*/
+.about_page p {
+  width: 600px;
+}
+/*END OF ABOUT SECTION*/
+
+
+
+
+/*THE FOOTER SECTION
+BELONGS TO: APPLICATION.HTML.ERB IN APP/VIEWS/LAYOUTS*/
+
+/*The horizontal line at the bottom of the page.*/
+.bottom_line {
+
+  height: 2px;
+  border: none;
+
+  margin: auto;
+
+  background-color: ivory;
+}
+
+/*The list items, but not the links themselves.*/
+.bottom_links li {
+  display: table;
+
+  list-style: none;
+
+  margin: auto;
+}
+
+/*The actual links at the bottom of the page.*/
+.bottom_links a {
+  text-decoration: none;
+
+  color: magenta;
+}
+
+/*END OF THE FOOTER*/

@@ -1,0 +1,15 @@
+<div class="main_navigation_buttons">
+  <%= link_to "Home", root_path, :class => "not_visiting" %>
+  <%= link_to "Topics", topics_path, :class => "visiting" %>
+  <%= link_to "About", pages_about_path, :class => "not_visiting" %>
+</div>
+
+<div class="new_topic_heading">
+  <h1>New Topic</h1>
+</div>
+
+<%= form_with model: @topic do |form| %>
+
+<%= render "form", topic: @topic %>
+
+<% end %>

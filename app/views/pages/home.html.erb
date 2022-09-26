@@ -1,0 +1,64 @@
+<div class="main_navigation_buttons">
+  <%= link_to "Home", root_path, :class => "visiting" %>
+  <%= link_to "Topics", topics_path, :class => "not_visiting" %>
+  <%= link_to "About", pages_about_path, :class => "not_visiting" %>
+</div>
+
+<br><br>
+
+<div class="ruby_power">
+
+  <div class="ruby_power_text">
+    <h1>Welcome to Speech Realm. Powered by Ruby on Rails.</h1>
+
+    <div class="ruby_image">
+      <%= image_tag("3druby.gif") %>
+    </div>
+
+    <p>This website in its entirety is a small window into the power that lies
+    in the Ruby on Rails stack. Here, one can start a discussion on all sorts of
+    suitable subjects, the limits being that which is legal within the United
+    States of America's jurisdiction.
+    </p>
+    <br>
+
+    <p>Unlike many other domains on the World Wide Web, you will be delighted to
+    find that creating an account is not required to participate in or explore
+    the website. Activity is monitored by the administrator, but basic trust in
+    the user and a painless experience are indispensable cornerstones in the
+    site's design philosophy. As such, it is encouraged that one treats others
+    as that one also desires to be treated. With this rule followed, peace
+    abounds.
+    </p>
+    <br>
+
+    <p>None of that is meant to overwhelm potential users rhetoric and
+      haughtiness. At the end of the day, it is my mission to deliver a nice
+      and easy product to the user. This website is gentle on the browser and
+      requires trivial amounts of processing power to load, most of it being
+      used on the gif to the right of the screen.
+    </p>
+    <br>
+
+    <p>My only request is that you relax. And enjoy.
+    </p>
+    <br>
+
+    <p>Coming soon to this humble website is searchbar technology,
+      enabling users to comfortably and smoothly find topics in which they have
+      participated and pick up where they left off.
+    </p>
+
+  </div>
+</div>
+
+<div class="new_topic_button">
+  <%= link_to "Create New Topic", new_topic_path %>
+</div>
+
+<footer>
+  <hr class="bottom_line">
+  <ul class="bottom_links">
+    <li><%= link_to image_tag("GitHub-Mark-Light-32px.png"), "https://github.com/GP-Legend"%></li>
+  </ul>
+</footer>

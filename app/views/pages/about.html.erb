@@ -1,0 +1,36 @@
+<div class="main_navigation_buttons">
+  <%= link_to "Home", root_path, :class => "not_visiting" %>
+  <%= link_to "Topics", topics_path, :class => "not_visiting" %>
+  <%= link_to "About", pages_about_path, :class => "visiting" %>
+</div>
+
+<div class="about_page">
+  <h1 class="about_heading">About</h1>
+
+  <h3>Why Does This Website Exist?</h3>
+  <p>To exercise the creativity of the lead programmer and to get a better
+  understanding of the fundamentals of web development and design.</p><br>
+
+  <h3>Who Is This Website For?</h3>
+  <p>As long as it is used wisely, it is for everyone to enjoy! Relax and talk
+  about whatever you (legally) want. Don't worry about who will see or
+  even recognize you; there isn't any of that here. You don't need an account
+  to post a comment or start a discussion.</p><br>
+
+  <h3>What Does This Website Seek to Accomplish?</h3>
+  <p>Not too much in the sense that this isn't some life's work at stake here,
+  just a demo of what I am, so far, capable of creating as a web developer
+  within the constraints of making an application as little intensive as
+  possible on the user's hardware.</p><br>
+
+  <h3>Can I Tinker With The Website or Peruse the Code?</h3>
+  <p>Absolutely! You can find a cleaned-up version of this application's code
+  on my Github profile. The link to it is at the very bottom of the page.</p>
+</div>
+
+<footer>
+  <hr class="bottom_line">
+  <ul class="bottom_links">
+    <li><%= link_to image_tag("GitHub-Mark-Light-32px.png"), "https://github.com/GP-Legend"%></li>
+  </ul>
+</footer>
